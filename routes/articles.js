@@ -9,8 +9,8 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const author = "Moses Netshitangani";
-    const title = "Pains of a Programmer";
+    const author = req.body.author;
+    const title = req.body.title;
 
     const newArticle = new Article({author, title});
 
