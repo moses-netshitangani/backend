@@ -9,7 +9,7 @@ const articleSchema = new mongoose.Schema(
         // date: {type: Date, required: true}
     },
     {
-        timestamsps: true
+        timestamps: true
     });
 
 const Article = mongoose.model('Article', articleSchema);

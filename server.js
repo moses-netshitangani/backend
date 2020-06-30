@@ -21,5 +21,5 @@ connection.once('open', () => console.log("Successfully connected to database.")
 const articleRouter = require('./routes/articles');
 app.use('/articles', articleRouter);
 
-// Listen on port 5000
+// Listen on port 3000
 app.listen(PORT, () => console.log('Server listening on port 3000'));
