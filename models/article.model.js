@@ -4,9 +4,12 @@ const mongoose = require('mongoose');
 const articleSchema = new mongoose.Schema(
     {
         author: {type: String, required: true},
+        date: {type: Date, required: true},
         title: {type: String, required: true},
-        // content: {type: String, required: true},
-        // date: {type: Date, required: true}
+        category: {type: String, required: true},
+        brief: {type: String, required: true},
+        content: {type: String, required: true}
+        // image type
     },
     {
         timestamps: true
