@@ -9,6 +9,14 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: '+err));
 });
 
+// retrive specific article using id
+router.route('/:id').get((req, res) => {
+    Article.findById(req.params.id)
+        .then(article => res.json(article))
+        .catch(err => res.status(400).json('Error tyrna fetch: '+err));
+})
+
+
 // post article route
 router.route('/add').post((req, res) => {
     const author = req.body.author;
