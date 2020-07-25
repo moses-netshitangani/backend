@@ -6,7 +6,7 @@ router.route('/').get((req, res) => {
     // order by most recent
     Article.find().sort({createdAt: -1})
         .then(articles => res.json(articles))
-        .catch(err => res.status(400).json('Error: '+err));
+        .catch(err => res.status(400).json('Error tryna fetch: '+err));
 });
 
 // retrive specific article using id
@@ -16,6 +16,12 @@ router.route('/:id').get((req, res) => {
         .catch(err => res.status(400).json('Error tyrna fetch: '+err));
 })
 
+// retrieve articles by topic
+router.route('/topic').get((req, res) => {
+    Article.find({topic: topic})
+        .then(articles => res.json(articles))
+        .catch(err => res.status(400).json('Error tryna fetch: '+error))
+})
 
 // post article route
 router.route('/add').post((req, res) => {
