@@ -18,9 +18,9 @@ router.route('/:id').get((req, res) => {
 
 // retrieve articles by topic
 router.route('/topic').get((req, res) => {
-    Article.find({category: topic})
+    Article.find({category: req.params.topic})
         .then(articles => res.json(articles))
-        .catch(err => res.status(400).json('Error tryna fetch: '+error))
+        .catch(err => res.status(400).json('Error tryna fetch: '+err))
 })
 
 // post article route
