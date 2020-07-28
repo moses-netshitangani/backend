@@ -13,12 +13,12 @@ router.route('/').get((req, res) => {
 router.route('/:id').get((req, res) => {
     Article.findById(req.params.id)
         .then(article => res.json(article))
-        .catch(err => res.status(400).json('Error tyrna fetch: '+err));
+        .catch(err => res.status(400).json('Error tryna fetch: '+err));
 })
 
 // retrieve articles by topic
-router.route('/topic').get((req, res) => {
-    Article.find({category: req.params.topic})
+router.route('/:topic').get((req, res) => {
+    Article.find()
         .then(articles => res.json(articles))
         .catch(err => res.status(400).json('Error tryna fetch: '+err))
 })
