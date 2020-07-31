@@ -10,20 +10,18 @@ router.route('/').get((req, res) => {
 });
 
 // retrieve articles by topic
-router.route('/:topic').get((req, res) => {
+router.route('/topic/:topic').get((req, res) => {
     Article.find({category: req.params.topic})
         .then(articles => res.json(articles))
         .catch(err => res.status(400).json('Error tryna fetch: '+err));
 });
 
 // retrive specific article using id
-router.route('/:id').get((req, res) => {
+router.route('/single/:id').get((req, res) => {
     Article.findById(req.params.id)
         .then(article => res.json(article))
         .catch(err => res.status(400).json('Error tryna fetch: '+err));
 });
-
-
 
 // post article route
 router.route('/add').post((req, res) => {

@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// connect to database using URI from the mongondb atlas dashboard
+// connect to database using URI from the mongodb atlas dashboard
 const URI = process.env.ATLAS_URI;
 const PORT = process.env.PORT || 3000;
 
@@ -17,7 +17,7 @@ mongoose.connect(URI, { useUnifiedTopology: true, useNewUrlParser: true, useCrea
 const connection = mongoose.connection;
 connection.once('open', () => console.log("Successfully connected to database."));
 
-// routes
+// route
 const articleRouter = require('./routes/articles');
 app.use('/articles', articleRouter);
 
