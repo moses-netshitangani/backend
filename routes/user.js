@@ -9,14 +9,17 @@ router.route('/add').post((req, res) => {
 
     user.save()
         .then(console.log('Admin succesfully added.'))
-        .catch(err => res.status(400).json("Error tryna save admin"));
+        .then(() => {
+            return conn.close();
+        })
+        .catch(err => res.status(400).json("Error tryna save admin") + err);
 })
 
 // retrieve admin
 router.route('/').get((req, res) => {
     User.find()
         .then(user => res.json(user))
-        .catch(err => res.status(400).json("Error tryna get admin"));
+        .catch(err => res.status(400).json("Error tryna get admin") + err);
 })
 
 module.exports = router;
