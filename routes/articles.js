@@ -106,7 +106,7 @@ router.route('/add').post((req, res) => {
     console.log(req.body);
 
     newArticle.save()
-        .then(() => console.log('Article successfully added'))
+        .then(user => res.json(user))
         .catch(err => res.status(400).json('Error while uploading article: ' + err));
 })
 module.exports = router;

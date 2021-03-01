@@ -5,13 +5,9 @@ let User = require('../models/user.model');
 router.route('/add').post((req, res) => {
     const user = new User(req.body);
 
-    console.log(`Testing user: ${user}`);
-
     user.save()
+        .then(user => res.json(user))
         .then(console.log('Admin succesfully added.'))
-        .then(() => {
-            return conn.close();
-        })
         .catch(err => res.status(400).json("Error tryna save admin") + err);
 })
 
